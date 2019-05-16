@@ -4,9 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVMHierachies"
+        xmlns:views="clr-namespace:MVVMHierachies.Views"
+        xmlns:data="clr-namespace:MVVMHierachies.Model"
+        xmlns:viewModel="clr-namespace:MVVMHierachies.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:CustomerListViewModel}">
+            <views:CustomerListView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:OrderViewModel}">
+            <views:OderView/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        
+        <ContentControl Content="{Binding CurrentView}"/>
     </Grid>
 </Window>
