@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\_Study\MVVMHierachies\MVVMHierachies\obj\Debug\
+D:\_Study\MVVMHierachies\MVVMHierachies\obj\Release\
 MVVMHierachies
 none
 false
-DEBUG;TRACE
+TRACE
 D:\_Study\MVVMHierachies\MVVMHierachies\App.xaml
 4-2035160464
 
-221785947525
+181765993171
 131569487696
 MainWindow.xaml;Views\AddEditCustomerView.xaml;Views\CustomerListView.xaml;Views\OderView.xaml;
 
-False
+True
 

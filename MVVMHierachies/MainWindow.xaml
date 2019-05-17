@@ -5,22 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVMHierachies"
         xmlns:views="clr-namespace:MVVMHierachies.Views"
-        xmlns:data="clr-namespace:MVVMHierachies.Model"
-        xmlns:viewModel="clr-namespace:MVVMHierachies.ViewModel"
+        xmlns:viewModels="clr-namespace:MVVMHierachies.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
     <Window.Resources>
-        <DataTemplate DataType="{x:Type viewModel:CustomerListViewModel}">
+        <DataTemplate DataType="{x:Type viewModels:CustomerListViewModel}">
             <views:CustomerListView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:OrderViewModel}">
+        <DataTemplate DataType="{x:Type viewModels:OrderViewModel}">
             <views:OderView/>
         </DataTemplate>
     </Window.Resources>
     <Grid>
-        <ContentControl Content="{Binding CurrentView}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="NavBar">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Customers"
+                    Command="{Binding NavCommand}"
+                    CommandParameter="customers"
+                    Grid.Column="0"/>
+            <Button Content="Order"
+                    Command="{Binding NavCommand}"
+                    CommandParameter="orders"
+                    Grid.Column="2"/>
+        </Grid>
+        <Grid x:Name="MainContent" Grid.Row="1">
+            <ContentControl Content="{Binding CurrentViewModel}"/>
+        </Grid>
     </Grid>
 </Window>

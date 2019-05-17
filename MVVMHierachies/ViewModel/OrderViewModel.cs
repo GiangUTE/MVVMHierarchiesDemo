@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVVMHierachies.ViewModel
 {
-    class OrderViewModel
+    class OrderViewModel: BindableBase
     {
     }
 }
